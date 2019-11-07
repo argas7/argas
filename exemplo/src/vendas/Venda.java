@@ -1,4 +1,4 @@
-package exemplo;
+package vendas;
 
 public class Venda {
 	private Produto produto;
