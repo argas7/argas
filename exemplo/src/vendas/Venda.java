@@ -1,40 +1,40 @@
 package vendas;
 
 public class Venda {
-	private Produto produto;
-	private PessoaFisica cliente;
-	private Funcionario funcionario;
+	private String idProduto;
+	private String idCliente;
+	private String idFuncionario;
 	private String id;
 	
-	public Venda(Produto produto, PessoaFisica cliente, Funcionario funcionario, String id) {
-		this.produto = produto;
-		this.cliente = cliente;
-		this.funcionario = funcionario;
+	public Venda(String produto, String cliente, String funcionario, String id) {
+		this.idProduto = produto;
+		this.idCliente = cliente;
+		this.idFuncionario = funcionario;
 		this.id = id;
 	}
 
-	public Produto getProduto() {
-		return this.produto;
+	public String getProduto() {
+		return this.idProduto;
 	}
 
-	public void setProduto(Produto produto) {
-		this.produto = produto;
+	public void setProduto(String produto) {
+		this.idProduto = produto;
 	}
 
-	public PessoaFisica getCliente() {
-		return this.cliente;
+	public String getCliente() {
+		return this.idCliente;
 	}
 
-	public void setCliente(PessoaFisica cliente) {
-		this.cliente = cliente;
+	public void setCliente(String cliente) {
+		this.idCliente = cliente;
 	}
 
-	public Funcionario getFuncionario() {
-		return this.funcionario;
+	public String getFuncionario() {
+		return this.idFuncionario;
 	}
 
-	public void setFuncionario(Funcionario funcionario) {
-		this.funcionario = funcionario;
+	public void setFuncionario(String funcionario) {
+		this.idFuncionario = funcionario;
 	}
 	
 	public String getId() {

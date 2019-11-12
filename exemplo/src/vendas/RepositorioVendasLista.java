@@ -35,14 +35,14 @@ public class RepositorioVendasLista implements RepositorioVendas {
 	}
 
 	@Override
-	public void cadastrar(Venda venda) throws VendaJaCadastradaException {
+	public void inserir(Venda venda) throws VendaJaCadastradaException {
 		if(this.venda == null) {
 			this.venda = venda;
 			this.proximo = new RepositorioVendasLista();
 		} else if(this.venda.getId().equals(venda.getId())) {
 			throw new VendaJaCadastradaException();
 		} else {
-			this.proximo.cadastrar(venda);
+			this.proximo.inserir(venda);
 		}
 	}
 
@@ -54,6 +54,17 @@ public class RepositorioVendasLista implements RepositorioVendas {
 			return this.venda;
 		} else {
 			return this.proximo.procurar(id);
+		}
+	}
+
+	@Override
+	public boolean existe(String id) {
+		if(this.venda == null) {
+			return false;
+		} else if(this.venda.getId().equals(id)) {
+			return true;
+		} else {
+			return this.proximo.existe(id);
 		}
 	}
 }

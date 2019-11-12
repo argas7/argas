@@ -9,12 +9,7 @@ public class RepositorioVendasArray implements RepositorioVendas {
 	}
 	
 	@Override
-	public void cadastrar(Venda venda) throws VendaJaCadastradaException {
-		for(int i = 0; i < this.index; i++) {
-			if(this.vendas[i].getId().equals(venda.getId())) {
-				throw new VendaJaCadastradaException();
-			}
-		}
+	public void inserir(Venda venda) throws VendaJaCadastradaException {
 		this.vendas[this.index] = venda;
 		this.index++;
 	}
@@ -22,48 +17,63 @@ public class RepositorioVendasArray implements RepositorioVendas {
 	@Override
 	public Venda procurar(String id) throws VendaNaoEncontradaException {
 		Venda venda = null;
-		boolean isCadastrado = false;
-		for(int i = 0; i < this.index && !isCadastrado; i++) {
-			if(this.vendas[i].getId().equals(id)) {
-				venda = this.vendas[i];
-				isCadastrado = true;
-			}
-		}
-		if(isCadastrado) {
-			return venda;
-		} else {
+		int i = this.getIndice(id);
+		if(i == this.index) {
 			throw new VendaNaoEncontradaException();
+		} else {
+			venda = this.vendas[i];
 		}
-	}
-
-	@Override
-	public void atualizar(Venda registroVenda) throws VendaNaoEncontradaException {
-		int iVenda = this.getIndex(registroVenda.getId());
-		this.vendas[iVenda] = registroVenda;
+		return venda;
 	}
 
 	@Override
 	public void remover(String id) throws VendaNaoEncontradaException {
-		int iVenda = this.getIndex(id);
-		for(int i = iVenda; i < this.index - 1; i++) {
-			this.vendas[i] = this.vendas[i + 1];
+		int i = this.getIndice(id);
+		if(i == this.index) {
+			throw new VendaNaoEncontradaException();
+		} else {
+			this.index--;
+			this.vendas[i] = this.vendas[this.index];
+			this.vendas[this.index] = null;
 		}
-		this.index--;
 	}
 	
-	public int getIndex(String id) throws VendaNaoEncontradaException {
-		int iVenda = -1;
+	@Override
+	public void atualizar(Venda registroVenda) throws VendaNaoEncontradaException {
+		int i = this.getIndice(registroVenda.getId());
+		if(i == this.index) {
+			throw new VendaNaoEncontradaException();
+		} else {
+			this.vendas[i] = registroVenda;
+		}
+	}
+	
+	public int getIndice(String id) throws VendaNaoEncontradaException {
+		String n;
 		boolean isCadastrado = false;
-		for(int i = 0; i < this.index && !isCadastrado; i++) {
+		int i = 0;
+		while(i < this.index && !isCadastrado) {
 			if(this.vendas[i].getId().equals(id)) {
-				iVenda = i;
 				isCadastrado = true;
+			} else {
+				i++;
 			}
 		}
-		if(isCadastrado) {
-			return iVenda;
-		} else {
-			throw new VendaNaoEncontradaException();
+		return i;
+	}
+
+	@Override
+	public boolean existe(String id) {
+		String n;
+		boolean isCadastrado = false;
+		int i = 0;
+		while(i < this.index && !isCadastrado) {
+			if(this.vendas[i].getId().equals(id)) {
+				isCadastrado = true;
+			} else {
+				i++;
+			}
 		}
+		return isCadastrado;
 	}
 }
