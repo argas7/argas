@@ -9,9 +9,33 @@ public class CadastroVendas {
 	
 	public void cadastrar(Venda venda) throws VendaJaCadastradaException {
 		if(!vendas.existe(venda.getId())) {
-			vendas.inserir(venda);
+			this.vendas.inserir(venda);
 		} else {
 			throw new VendaJaCadastradaException();
+		}
+	}
+	
+	public Venda procurar(String id) throws VendaNaoEncontradaException{
+		if(vendas.existe(id)) {
+			return this.vendas.procurar(id);
+		} else {
+			throw new VendaNaoEncontradaException();
+		}
+	}
+	
+	public void remover(String id) throws VendaNaoEncontradaException {
+		if(vendas.existe(id)) {
+			this.vendas.remover(id);
+		} else {
+			throw new VendaNaoEncontradaException();
+		}
+	}
+	
+	public void atualizar(Venda venda) throws VendaNaoEncontradaException {
+		if(vendas.existe(venda.getId())) {
+			this.vendas.atualizar(venda);
+		} else {
+			throw new VendaNaoEncontradaException();
 		}
 	}
 }

@@ -18,37 +18,25 @@ public class RepositorioVendasArray implements RepositorioVendas {
 	public Venda procurar(String id) throws VendaNaoEncontradaException {
 		Venda venda = null;
 		int i = this.getIndice(id);
-		if(i == this.index) {
-			throw new VendaNaoEncontradaException();
-		} else {
-			venda = this.vendas[i];
-		}
+		venda = this.vendas[i];
 		return venda;
 	}
 
 	@Override
 	public void remover(String id) throws VendaNaoEncontradaException {
 		int i = this.getIndice(id);
-		if(i == this.index) {
-			throw new VendaNaoEncontradaException();
-		} else {
-			this.index--;
-			this.vendas[i] = this.vendas[this.index];
-			this.vendas[this.index] = null;
-		}
+		this.index--;
+		this.vendas[i] = this.vendas[this.index];
+		this.vendas[this.index] = null;
 	}
 	
 	@Override
 	public void atualizar(Venda registroVenda) throws VendaNaoEncontradaException {
 		int i = this.getIndice(registroVenda.getId());
-		if(i == this.index) {
-			throw new VendaNaoEncontradaException();
-		} else {
-			this.vendas[i] = registroVenda;
-		}
+		this.vendas[i] = registroVenda;
 	}
 	
-	public int getIndice(String id) throws VendaNaoEncontradaException {
+	public int getIndice(String id) {
 		String n;
 		boolean isCadastrado = false;
 		int i = 0;
