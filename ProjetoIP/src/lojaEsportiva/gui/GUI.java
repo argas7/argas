@@ -1,13 +1,35 @@
-package vendas;
+package lojaEsportiva.gui;
 
 import java.util.Scanner;
 
-public class gui {
+import lojaEsportiva.dados.RepositorioClienteArray;
+import lojaEsportiva.dados.RepositorioFuncionariosArray;
+import lojaEsportiva.dados.RepositorioLista;
+import lojaEsportiva.dados.RepositorioProdutoArray;
+import lojaEsportiva.dados.RepositorioVendasArray;
+import lojaEsportiva.dados.Venda;
+import lojaEsportiva.exceptions.VendaJaCadastradaException;
+import lojaEsportiva.exceptions.VendaNaoEncontradaException;
+import lojaEsportiva.fachada.Fachada;
+import lojaEsportiva.negocio.CadastroCliente;
+import lojaEsportiva.negocio.CadastroFornecedor;
+import lojaEsportiva.negocio.CadastroFuncionarios;
+import lojaEsportiva.negocio.CadastroVendas;
+import lojaEsportiva.negocio.Cadastroprodutos;
+
+public class GUI {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		//Fachada fachada = new Fachada(new CadastroVendas(new RepositorioVendasArray()));
-		Fachada fachada = new Fachada(new CadastroVendas(new RepositorioVendasLista()));
+		Fachada fachada = new Fachada(new CadastroVendas(new RepositorioVendasArray()),
+				new Cadastroprodutos(new RepositorioProdutoArray()),
+				new CadastroFornecedor(new RepositorioLista()),
+				new CadastroFuncionarios(new RepositorioFuncionariosArray()),
+				new CadastroCliente(new RepositorioClienteArray()));
+		//Fachada fachada = new Fachada(new CadastroVendas(new RepositorioVendasLista()),
+		//		new Cadastroprodutos(new RepositorioProdutosLista()),
+		//		new CadastroFornecedor(new RepositorioArray()),
+		//		new CadastroFuncionarios(new RepositorioFuncionariosLista()),
+		//		new CadastroCliente(new RepositorioListaCliente()));
 		Scanner t = new Scanner(System.in);
 		int op;
 		do {
@@ -32,7 +54,7 @@ public class gui {
 					funcionario = t.nextLine();
 					System.out.print("Digite o ID da Venda: ");
 					venda = t.nextLine();
-					fachada.cadastrar(new Venda(produto, cliente, funcionario, venda));
+					fachada.cadastrarVenda(new Venda(produto, cliente, funcionario, venda));
 					System.out.println("Cadastro realizado com Sucesso!");
 				} catch (VendaJaCadastradaException e) {
 					System.out.println(e.getMessage());
@@ -41,7 +63,7 @@ public class gui {
 			case 2:
 				try {
 					System.out.print("Digite o ID da venda: ");
-					Venda venda = fachada.procurar(t.nextLine());
+					Venda venda = fachada.procurarVenda(t.nextLine());
 					System.out.println("\nID Cliente: " + venda.getCliente());
 					System.out.println("ID Funcionario: " + venda.getFuncionario());
 					System.out.println("ID Produto: " + venda.getProduto() + "\n");
@@ -52,7 +74,7 @@ public class gui {
 			case 3:
 				try {
 					System.out.print("Digite o ID da venda que desejas remover: ");
-					fachada.remover(t.nextLine());
+					fachada.removerVenda(t.nextLine());
 					System.out.println("Venda removida dos registros!");
 				} catch (VendaNaoEncontradaException e) {
 					System.out.println(e.getMessage());
@@ -69,7 +91,7 @@ public class gui {
 					funcionario = t.nextLine();
 					System.out.print("Digite o ID da Venda que desejas atualizar: ");
 					venda = t.nextLine();
-					fachada.atualizar(new Venda(produto, cliente, funcionario, venda));
+					fachada.atualizarVenda(new Venda(produto, cliente, funcionario, venda));
 					System.out.println("Registro de venda atualizado!");
 				} catch (VendaNaoEncontradaException e) {
 					System.out.println(e.getMessage());

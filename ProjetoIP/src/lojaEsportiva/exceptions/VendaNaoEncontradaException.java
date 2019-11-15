@@ -1,4 +1,4 @@
-package vendas;
+package lojaEsportiva.exceptions;
 
 public class VendaNaoEncontradaException extends Exception {
 	

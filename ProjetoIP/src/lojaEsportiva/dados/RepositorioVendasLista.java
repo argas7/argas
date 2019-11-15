@@ -1,4 +1,7 @@
-package vendas;
+package lojaEsportiva.dados;
+
+import lojaEsportiva.exceptions.VendaJaCadastradaException;
+import lojaEsportiva.exceptions.VendaNaoEncontradaException;
 
 public class RepositorioVendasLista implements RepositorioVendas {
 	private Venda venda;

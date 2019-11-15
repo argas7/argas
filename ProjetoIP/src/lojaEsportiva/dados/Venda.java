@@ -1,4 +1,4 @@
-package vendas;
+package lojaEsportiva.dados;
 
 public class Venda {
 	private String idProduto;
