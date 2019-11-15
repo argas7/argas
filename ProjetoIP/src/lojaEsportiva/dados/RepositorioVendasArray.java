@@ -40,7 +40,6 @@ public class RepositorioVendasArray implements RepositorioVendas {
 	}
 	
 	public int getIndice(String id) {
-		String n;
 		boolean isCadastrado = false;
 		int i = 0;
 		while(i < this.index && !isCadastrado) {
@@ -55,7 +54,6 @@ public class RepositorioVendasArray implements RepositorioVendas {
 
 	@Override
 	public boolean existe(String id) {
-		String n;
 		boolean isCadastrado = false;
 		int i = 0;
 		while(i < this.index && !isCadastrado) {

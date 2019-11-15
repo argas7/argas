@@ -1,40 +1,40 @@
 package lojaEsportiva.dados;
 
 public class Venda {
-	private String idProduto;
-	private String idCliente;
-	private String idFuncionario;
+	private Produto produto;
+	private Cliente cliente;
+	private Funcionarios funcionario;
 	private String id;
 	
-	public Venda(String produto, String cliente, String funcionario, String id) {
-		this.idProduto = produto;
-		this.idCliente = cliente;
-		this.idFuncionario = funcionario;
+	public Venda(Produto produto, Cliente cliente, Funcionarios funcionario, String id) {
+		this.produto = produto;
+		this.cliente = cliente;
+		this.funcionario = funcionario;
 		this.id = id;
 	}
 
-	public String getProduto() {
-		return this.idProduto;
+	public Produto getProduto() {
+		return this.produto;
 	}
 
-	public void setProduto(String produto) {
-		this.idProduto = produto;
+	public void setProduto(Produto produto) {
+		this.produto = produto;
 	}
 
-	public String getCliente() {
-		return this.idCliente;
+	public Cliente getCliente() {
+		return this.cliente;
 	}
 
-	public void setCliente(String cliente) {
-		this.idCliente = cliente;
+	public void setCliente(Cliente cliente) {
+		this.cliente = cliente;
 	}
 
-	public String getFuncionario() {
-		return this.idFuncionario;
+	public Funcionarios getFuncionario() {
+		return this.funcionario;
 	}
 
-	public void setFuncionario(String funcionario) {
-		this.idFuncionario = funcionario;
+	public void setFuncionario(Funcionarios funcionario) {
+		this.funcionario = funcionario;
 	}
 	
 	public String getId() {

@@ -9,7 +9,7 @@ public class Produto {
 	private double preco;
 	
 	
-	public Produto() {
+	public Produto(String tamanho, String modelo, String marca, String identificador, String tipo, double preco) {
 	this.tamanho=tamanho;
 	this.modelo=modelo;
 	this.marca=marca;
