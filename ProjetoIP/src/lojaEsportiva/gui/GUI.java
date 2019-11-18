@@ -38,15 +38,15 @@ public class GUI {
 
 	public static void main(String[] args) {
 		//Fachada fachada = new Fachada(new CadastroVendas(new RepositorioVendasArray()),
-				//new Cadastroprodutos(new RepositorioProdutoArray()),
-				//new CadastroFornecedor(new RepositorioLista()),
-				//new CadastroFuncionarios(new RepositorioFuncionariosArray()),
-				//new CadastroCliente(new RepositorioClienteArray()));
+		//		new Cadastroprodutos(new RepositorioProdutoArray()),
+		//		new CadastroFornecedor(new RepositorioArray()),
+		//		new CadastroFuncionarios(new RepositorioFuncionariosArray()),
+		//		new CadastroCliente(new RepositorioClienteArray()));
 		Fachada fachada = new Fachada(new CadastroVendas(new RepositorioVendasLista()),
 				new Cadastroprodutos(new RepositorioProdutosLista()),
-				new CadastroFornecedor(new RepositorioArray()),
+				new CadastroFornecedor(new RepositorioLista()),
 				new CadastroFuncionarios(new RepositorioFuncionariosLista()),
-			new CadastroCliente(new RepositorioListaCliente()));
+				new CadastroCliente(new RepositorioListaCliente()));
 		Scanner t = new Scanner(System.in);
 		int op;
 		do {
@@ -66,7 +66,7 @@ public class GUI {
 				System.out.println("2 - Consultar");
 				System.out.println("3 - Remover");
 				System.out.println("4 - Alterar");
-				System.out.print("Digite sua opÁ„o: ");
+				System.out.print("Digite sua op√ß√£o: ");
 				opSubmenu = t.nextInt();
 				t.nextLine();
 				switch(opSubmenu) {
@@ -84,7 +84,7 @@ public class GUI {
 					tamanho = t.nextLine();
 					System.out.print("Digite o ID do Produto: ");
 					id = t.nextLine();
-					System.out.print("Digite o preÁo do Produto: ");
+					System.out.print("Digite o pre√ßo do Produto: ");
 					preco = Double.parseDouble(t.nextLine());
 					try {
 						fachada.cadastrarProduto(new Produto(tamanho, modelo, marca, id, tipo, preco));
@@ -103,7 +103,7 @@ public class GUI {
 						System.out.println("\tMarca: " + produto.getMarca());
 						System.out.println("\tModelo: " + produto.getModelo());
 						System.out.println("\tTamanho: " + produto.getTamanho());
-						System.out.println("\tPreÁo: " + produto.getPreco() + "\n");
+						System.out.println("\tPre√ßo: " + produto.getPreco() + "\n");
 					} catch (ProdutoNaoEncontradoException e) {
 						System.out.println(e.getMessage());
 					}
@@ -128,7 +128,7 @@ public class GUI {
 					modelo = t.nextLine();
 					System.out.print("Digite o tamanho do Produto: ");
 					tamanho = t.nextLine();
-					System.out.print("Digite o preÁo do Produto: ");
+					System.out.print("Digite o pre√ßo do Produto: ");
 					preco = Double.parseDouble(t.nextLine());
 					try {
 						fachada.atualizarProduto(new Produto(tamanho, modelo, marca, id, tipo, preco));
@@ -138,7 +138,7 @@ public class GUI {
 					}
 					break;
 				default:
-					System.out.println("OpÁ„o Inv·lida");
+					System.out.println("Op√ß√£o Inv√°lida");
 					break;
 				}
 				break;
@@ -148,7 +148,7 @@ public class GUI {
 				System.out.println("2 - Consultar");
 				System.out.println("3 - Remover");
 				System.out.println("4 - Alterar");
-				System.out.print("Digite sua opÁ„o: ");
+				System.out.print("Digite sua op√ß√£o: ");
 				opSubmenu = t.nextInt();
 				t.nextLine();
 				switch(opSubmenu) {
@@ -158,7 +158,7 @@ public class GUI {
 					nome = t.nextLine();
 					System.out.print("Digite o contato do Cliente: ");
 					contato = t.nextLine();
-					System.out.print("Digite o endereÁo do Cliente: ");
+					System.out.print("Digite o endere√ßo do Cliente: ");
 					endereco = t.nextLine();
 					System.out.print("Digite o CPF do Cliente: ");
 					cpf = t.nextLine();
@@ -177,7 +177,7 @@ public class GUI {
 						cliente = fachada.procurarCliente(cpf);
 						System.out.println("\n\tNome: " + cliente.getNome());
 						System.out.println("\tContato: " + cliente.getContato());
-						System.out.println("\tEndereÁo: " + cliente.getEndereco() + "\n");
+						System.out.println("\tEndere√ßo: " + cliente.getEndereco() + "\n");
 					} catch (ClienteNaoEncontradoException e) {
 						System.out.println(e.getMessage());
 					}
@@ -198,7 +198,7 @@ public class GUI {
 					nome = t.nextLine();
 					System.out.print("Digite o contato do Cliente: ");
 					contato = t.nextLine();
-					System.out.print("Digite o endereÁo do Cliente: ");
+					System.out.print("Digite o endere√ßo do Cliente: ");
 					endereco = t.nextLine();
 					try {
 						fachada.atualizarCliente(new Cliente(nome, endereco, contato, cpf));
@@ -208,7 +208,7 @@ public class GUI {
 					}
 					break;
 				default:
-					System.out.println("OpÁ„o Inv·lida");
+					System.out.println("Op√ß√£o Inv√°lida");
 					break;
 				}
 				break;
@@ -218,7 +218,7 @@ public class GUI {
 				System.out.println("2 - Consultar");
 				System.out.println("3 - Remover");
 				System.out.println("4 - Alterar");
-				System.out.print("Digite sua opÁ„o: ");
+				System.out.print("Digite sua op√ß√£o: ");
 				opSubmenu = t.nextInt();
 				t.nextLine();
 				switch(opSubmenu) {
@@ -228,7 +228,7 @@ public class GUI {
 					nome = t.nextLine();
 					System.out.print("Digite o contato do Funcionario: ");
 					contato = t.nextLine();
-					System.out.print("Digite o endereÁo do Funcionario: ");
+					System.out.print("Digite o endere√ßo do Funcionario: ");
 					endereco = t.nextLine();
 					System.out.print("Digite o numero da conta do Funcionario: ");
 					numeroConta = t.nextLine();
@@ -236,7 +236,7 @@ public class GUI {
 					rg = t.nextLine();
 					System.out.print("Digite o CPF do Funcionario: ");
 					cpf = t.nextLine();
-					System.out.print("Digite o Identificador PrÛprio do Funcionario: ");
+					System.out.print("Digite o Identificador Pr√≥prio do Funcionario: ");
 					idFuncionario = t.nextLine();
 					try {
 						fachada.cadastrarFuncionario(new Funcionarios(rg, numeroConta, idFuncionario, nome, endereco, contato, cpf));
@@ -253,7 +253,7 @@ public class GUI {
 						funcionario = fachada.procurarFuncionario(idFuncionario);
 						System.out.println("\n\tNome: " + funcionario.getNome());
 						System.out.println("\tContato: " + funcionario.getContato());
-						System.out.println("\tEndereÁo: " + funcionario.getEndereco());
+						System.out.println("\tEndere√ßo: " + funcionario.getEndereco());
 						System.out.println("\tCPF: " + funcionario.getId());
 						System.out.println("\tRG: " + funcionario.getRg());
 						System.out.println("\tNumero da Conta: " + funcionario.getNumeroConta() + "\n");
@@ -277,7 +277,7 @@ public class GUI {
 					nome = t.nextLine();
 					System.out.print("Digite o contato do Funcionario: ");
 					contato = t.nextLine();
-					System.out.print("Digite o endereÁo do Funcionario: ");
+					System.out.print("Digite o endere√ßo do Funcionario: ");
 					endereco = t.nextLine();
 					System.out.print("Digite o numero da conta do Funcionario: ");
 					numeroConta = t.nextLine();
@@ -293,7 +293,7 @@ public class GUI {
 					}
 					break;
 				default:
-					System.out.println("OpÁ„o Inv·lida");
+					System.out.println("Op√ß√£o Inv√°lida");
 					break;
 				}
 				break;
@@ -303,7 +303,7 @@ public class GUI {
 				System.out.println("2 - Consultar");
 				System.out.println("3 - Remover");
 				System.out.println("4 - Alterar");
-				System.out.print("Digite sua opÁ„o: ");
+				System.out.print("Digite sua op√ß√£o: ");
 				opSubmenu = t.nextInt();
 				t.nextLine();
 				switch(opSubmenu) {
@@ -313,7 +313,7 @@ public class GUI {
 					nome = t.nextLine();
 					System.out.print("Digite o contato do Fornecedor: ");
 					contato = t.nextLine();
-					System.out.print("Digite o endereÁo do Fornecedor: ");
+					System.out.print("Digite o endere√ßo do Fornecedor: ");
 					endereco = t.nextLine();
 					System.out.print("Digite o tipo de produto com os quais o Fornecedor trabalha: ");
 					tipoProduto = t.nextLine();
@@ -334,7 +334,7 @@ public class GUI {
 						fornecedor = fachada.procurarFornecedor(cnpj);
 						System.out.println("\n\tNome: " + fornecedor.getNome());
 						System.out.println("\tContato: " + fornecedor.getContato());
-						System.out.println("\tEndereÁo: " + fornecedor.getEndereco());
+						System.out.println("\tEndere√ßo: " + fornecedor.getEndereco());
 						System.out.println("\tTipos de produto fornecidos: " + fornecedor.getTipoProduto() + "\n");
 					} catch (FornecedorNaoEncontradoException e) {
 						System.out.println(e.getMessage());
@@ -356,7 +356,7 @@ public class GUI {
 					nome = t.nextLine();
 					System.out.print("Digite o contato do Fornecedor: ");
 					contato = t.nextLine();
-					System.out.print("Digite o endereÁo do Fornecedor: ");
+					System.out.print("Digite o endere√ßo do Fornecedor: ");
 					endereco = t.nextLine();
 					System.out.print("Digite o tipo de produto com os quais o Fornecedor trabalha: ");
 					tipoProduto = t.nextLine();
@@ -368,7 +368,7 @@ public class GUI {
 					}
 					break;
 				default:
-					System.out.println("OpÁ„o Inv·lida");
+					System.out.println("Op√ß√£o Inv√°lida");
 					break;
 				}
 				break;
@@ -378,7 +378,7 @@ public class GUI {
 				System.out.println("2 - Consultar");
 				System.out.println("3 - Remover");
 				System.out.println("4 - Alterar");
-				System.out.print("Digite sua opÁ„o: ");
+				System.out.print("Digite sua op√ß√£o: ");
 				opSubmenu = t.nextInt();
 				t.nextLine();
 				switch(opSubmenu) {
@@ -415,11 +415,11 @@ public class GUI {
 						System.out.println("\nCliente: " + venda.getCliente().getNome());
 						System.out.println("\tCPF: " + venda.getCliente().getId());
 						System.out.println("\tContato: " + venda.getCliente().getContato());
-						System.out.println("\tEndereÁo: " + venda.getCliente().getEndereco());
+						System.out.println("\tEndere√ßo: " + venda.getCliente().getEndereco());
 						System.out.println("\nFuncionario: " + venda.getFuncionario().getNome());
 						System.out.println("\tID: " + venda.getFuncionario().getIdFuncionario());
 						System.out.println("\tContato: " + venda.getFuncionario().getContato());
-						System.out.println("\tN˙mero da Conta: " + venda.getFuncionario().getNumeroConta());
+						System.out.println("\tN√∫mero da Conta: " + venda.getFuncionario().getNumeroConta());
 						System.out.println("\nProduto: " + venda.getProduto().getTipo());
 						System.out.println("\tMarca: " + venda.getProduto().getMarca());
 						System.out.println("\tModelo: " + venda.getProduto().getPreco());
@@ -463,7 +463,7 @@ public class GUI {
 					}
 					break;
 				default:
-					System.out.println("OpÁ„o Inv·lida");
+					System.out.println("Op√ß√£o Inv√°lida");
 					break;
 				}
 				break;
@@ -471,7 +471,7 @@ public class GUI {
 				System.out.println("\n\nObrigado por usar nosso sistema!");
 				break;
 			default:
-				System.out.println("OpÁ„o Inv·lida!");
+				System.out.println("Op√ß√£o Inv√°lida!");
 				break;
 			}
 		} while(op != 0);
