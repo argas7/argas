@@ -25,12 +25,12 @@ public class RepositorioLista implements Repositorio{
 
     @Override
     public Fornecedor procurar(String cnpj) throws FornecedorNaoEncontradoException {
-        if (this.fornecedor.getId().equals(cnpj)){
-            return this.fornecedor;
-        } else if (this.proximo != null){
-            return this.proximo.procurar(cnpj);
+        if (this.proximo == null){
+           throw new FornecedorNaoEncontradoException();
+        } else if (this.fornecedor.getId().equals(cnpj)){
+           return this.fornecedor;
         } else {
-            throw new FornecedorNaoEncontradoException();
+         return   this.proximo.procurar(cnpj);
         }
 
 
@@ -68,14 +68,13 @@ public class RepositorioLista implements Repositorio{
 
     @Override
     public void atualizar(Fornecedor fornecedor) throws FornecedorNaoEncontradoException {
-        if (this.fornecedor.getId().equals(fornecedor.getId())){
-            this.fornecedor.setNomeFantasia(fornecedor.getNomeFantasia());
-            this.fornecedor.setTipoProduto(fornecedor.getTipoProduto());
-        } else if (this.proximo != null){
-            this.proximo.atualizar(fornecedor);
+        if (this.proximo == null){
+           throw new FornecedorNaoEncontradoException();
+        } else if (this.fornecedor.getId().equals(fornecedor.getId())){
+             this.fornecedor.setTipoProduto(fornecedor.getTipoProduto());
         } else {
-            throw new FornecedorNaoEncontradoException();
-        }
+           this.proximo.atualizar(fornecedor);
+           }
 
     }
 }
