@@ -6,11 +6,16 @@ import lojaEsportiva.dados.Cliente;
 import lojaEsportiva.dados.Fornecedor;
 import lojaEsportiva.dados.Funcionarios;
 import lojaEsportiva.dados.Produto;
+import lojaEsportiva.dados.RepositorioArray;
 import lojaEsportiva.dados.RepositorioClienteArray;
 import lojaEsportiva.dados.RepositorioFuncionariosArray;
+import lojaEsportiva.dados.RepositorioFuncionariosLista;
 import lojaEsportiva.dados.RepositorioLista;
+import lojaEsportiva.dados.RepositorioListaCliente;
 import lojaEsportiva.dados.RepositorioProdutoArray;
+import lojaEsportiva.dados.RepositorioProdutosLista;
 import lojaEsportiva.dados.RepositorioVendasArray;
+import lojaEsportiva.dados.RepositorioVendasLista;
 import lojaEsportiva.dados.Venda;
 import lojaEsportiva.exceptions.ClienteJaCadastradoException;
 import lojaEsportiva.exceptions.ClienteNaoEncontradoException;
@@ -32,16 +37,16 @@ import lojaEsportiva.negocio.Cadastroprodutos;
 public class GUI {
 
 	public static void main(String[] args) {
-		Fachada fachada = new Fachada(new CadastroVendas(new RepositorioVendasArray()),
-				new Cadastroprodutos(new RepositorioProdutoArray()),
-				new CadastroFornecedor(new RepositorioLista()),
-				new CadastroFuncionarios(new RepositorioFuncionariosArray()),
-				new CadastroCliente(new RepositorioClienteArray()));
-		//Fachada fachada = new Fachada(new CadastroVendas(new RepositorioVendasLista()),
-		//		new Cadastroprodutos(new RepositorioProdutosLista()),
+		//Fachada fachada = new Fachada(new CadastroVendas(new RepositorioVendasArray()),
+		//		new Cadastroprodutos(new RepositorioProdutoArray()),
 		//		new CadastroFornecedor(new RepositorioArray()),
-		//		new CadastroFuncionarios(new RepositorioFuncionariosLista()),
-		//		new CadastroCliente(new RepositorioListaCliente()));
+		//		new CadastroFuncionarios(new RepositorioFuncionariosArray()),
+		//		new CadastroCliente(new RepositorioClienteArray()));
+		Fachada fachada = new Fachada(new CadastroVendas(new RepositorioVendasLista()),
+				new Cadastroprodutos(new RepositorioProdutosLista()),
+				new CadastroFornecedor(new RepositorioLista()),
+				new CadastroFuncionarios(new RepositorioFuncionariosLista()),
+				new CadastroCliente(new RepositorioListaCliente()));
 		Scanner t = new Scanner(System.in);
 		int op;
 		do {

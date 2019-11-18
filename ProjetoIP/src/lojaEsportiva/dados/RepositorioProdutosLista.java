@@ -8,7 +8,7 @@ public class RepositorioProdutosLista implements repositorioprodutos  {
 	private RepositorioProdutosLista proximo;
 	public RepositorioProdutosLista() {
 		this.produto=null;
-		this.proximo=new RepositorioProdutosLista();
+		this.proximo=null;
 	}
 	
 	public void inserir(Produto produto)throws ProdutoJaCadastradoException {
@@ -52,7 +52,7 @@ public class RepositorioProdutosLista implements repositorioprodutos  {
 		Produto retorna=null;
 		if(this.proximo==null){
 			throw new ProdutoNaoEncontradoException();
-		}else if(this.produto.getIdentificador().equals(produto.getIdentificador())) {
+		}else if(this.produto.getIdentificador().equals(identificador)) {
 			retorna= this.produto;
 		}else {
 			this.proximo.procurar(identificador);
