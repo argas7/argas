@@ -6,11 +6,16 @@ import lojaEsportiva.dados.Cliente;
 import lojaEsportiva.dados.Fornecedor;
 import lojaEsportiva.dados.Funcionarios;
 import lojaEsportiva.dados.Produto;
+import lojaEsportiva.dados.RepositorioArray;
 import lojaEsportiva.dados.RepositorioClienteArray;
 import lojaEsportiva.dados.RepositorioFuncionariosArray;
+import lojaEsportiva.dados.RepositorioFuncionariosLista;
 import lojaEsportiva.dados.RepositorioLista;
+import lojaEsportiva.dados.RepositorioListaCliente;
 import lojaEsportiva.dados.RepositorioProdutoArray;
+import lojaEsportiva.dados.RepositorioProdutosLista;
 import lojaEsportiva.dados.RepositorioVendasArray;
+import lojaEsportiva.dados.RepositorioVendasLista;
 import lojaEsportiva.dados.Venda;
 import lojaEsportiva.exceptions.ClienteJaCadastradoException;
 import lojaEsportiva.exceptions.ClienteNaoEncontradoException;
@@ -32,16 +37,16 @@ import lojaEsportiva.negocio.Cadastroprodutos;
 public class GUI {
 
 	public static void main(String[] args) {
-		Fachada fachada = new Fachada(new CadastroVendas(new RepositorioVendasArray()),
-				new Cadastroprodutos(new RepositorioProdutoArray()),
-				new CadastroFornecedor(new RepositorioLista()),
-				new CadastroFuncionarios(new RepositorioFuncionariosArray()),
-				new CadastroCliente(new RepositorioClienteArray()));
-		//Fachada fachada = new Fachada(new CadastroVendas(new RepositorioVendasLista()),
-		//		new Cadastroprodutos(new RepositorioProdutosLista()),
-		//		new CadastroFornecedor(new RepositorioArray()),
-		//		new CadastroFuncionarios(new RepositorioFuncionariosLista()),
-		//		new CadastroCliente(new RepositorioListaCliente()));
+		//Fachada fachada = new Fachada(new CadastroVendas(new RepositorioVendasArray()),
+				//new Cadastroprodutos(new RepositorioProdutoArray()),
+				//new CadastroFornecedor(new RepositorioLista()),
+				//new CadastroFuncionarios(new RepositorioFuncionariosArray()),
+				//new CadastroCliente(new RepositorioClienteArray()));
+		Fachada fachada = new Fachada(new CadastroVendas(new RepositorioVendasLista()),
+				new Cadastroprodutos(new RepositorioProdutosLista()),
+				new CadastroFornecedor(new RepositorioArray()),
+				new CadastroFuncionarios(new RepositorioFuncionariosLista()),
+			new CadastroCliente(new RepositorioListaCliente()));
 		Scanner t = new Scanner(System.in);
 		int op;
 		do {
@@ -303,7 +308,7 @@ public class GUI {
 				t.nextLine();
 				switch(opSubmenu) {
 				case 1:
-					String nome, endereco, contato, tipoProduto, nomeFantasia, cnpj;
+					String nome, endereco, contato, tipoProduto, cnpj;
 					System.out.print("Digite o nome do Fornecedor: ");
 					nome = t.nextLine();
 					System.out.print("Digite o contato do Fornecedor: ");
@@ -312,12 +317,10 @@ public class GUI {
 					endereco = t.nextLine();
 					System.out.print("Digite o tipo de produto com os quais o Fornecedor trabalha: ");
 					tipoProduto = t.nextLine();
-					System.out.print("Digite o nome fantasia do Fornecedor: ");
-					nomeFantasia = t.nextLine();
 					System.out.print("Digite o CNPJ do Fornecedor: ");
 					cnpj = t.nextLine();
 					try {
-						fachada.cadastrarFornecedor(new Fornecedor(nome, endereco, contato, tipoProduto, nomeFantasia, cnpj));
+						fachada.cadastrarFornecedor(new Fornecedor(nome, endereco, contato, tipoProduto, cnpj));
 						System.out.println("Cadastro realizado com sucesso!");
 					} catch (FornecedorJaCadastradoException e) {
 						System.out.println(e.getMessage());
@@ -332,8 +335,7 @@ public class GUI {
 						System.out.println("\n\tNome: " + fornecedor.getNome());
 						System.out.println("\tContato: " + fornecedor.getContato());
 						System.out.println("\tEndereço: " + fornecedor.getEndereco());
-						System.out.println("\tTipos de produto fornecidos: " + fornecedor.getTipoProduto());
-						System.out.println("\tNome fantasia: " + fornecedor.getNomeFantasia() + "\n");
+						System.out.println("\tTipos de produto fornecidos: " + fornecedor.getTipoProduto() + "\n");
 					} catch (FornecedorNaoEncontradoException e) {
 						System.out.println(e.getMessage());
 					}
@@ -358,10 +360,8 @@ public class GUI {
 					endereco = t.nextLine();
 					System.out.print("Digite o tipo de produto com os quais o Fornecedor trabalha: ");
 					tipoProduto = t.nextLine();
-					System.out.print("Digite o nome fantasia do Fornecedor: ");
-					nomeFantasia = t.nextLine();
 					try {
-						fachada.atualizarFornecedor(new Fornecedor(nome, endereco, contato, tipoProduto, nomeFantasia, cnpj));
+						fachada.atualizarFornecedor(new Fornecedor(nome, endereco, contato, tipoProduto, cnpj));
 						System.out.println("Registro de Fornecedor atualizado!");
 					} catch (FornecedorNaoEncontradoException e) {
 						System.out.println(e.getMessage());

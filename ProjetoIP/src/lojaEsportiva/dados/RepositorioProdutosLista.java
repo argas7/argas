@@ -7,8 +7,8 @@ public class RepositorioProdutosLista implements repositorioprodutos  {
 	private Produto produto;
 	private RepositorioProdutosLista proximo;
 	public RepositorioProdutosLista() {
-		this.produto=null;
-		this.proximo=new RepositorioProdutosLista();
+		this.produto= null;
+		this.proximo= null;
 	}
 	
 	public void inserir(Produto produto)throws ProdutoJaCadastradoException {

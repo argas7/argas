@@ -15,7 +15,7 @@ public class CadastroFuncionarios {
 
 	public void cadastrar(Funcionarios funcionario) throws FuncionarioJaCadastradoException {
 
-		if (funcionarios.existe(funcionario.getIdFuncionario()) == false) {
+		if (funcionarios.existe(funcionario.getIdFuncionario()) == false && funcionarios.existe(funcionario.getId()) == false) {
 			funcionarios.inserir(funcionario);
 		} else {
 			throw new FuncionarioJaCadastradoException();
