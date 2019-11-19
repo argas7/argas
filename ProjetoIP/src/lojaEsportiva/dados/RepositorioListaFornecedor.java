@@ -3,10 +3,10 @@ package lojaEsportiva.dados;
 import lojaEsportiva.exceptions.FornecedorJaCadastradoException;
 import lojaEsportiva.exceptions.FornecedorNaoEncontradoException;
 
-public class RepositorioLista implements Repositorio{
+public class RepositorioListaFornecedor implements RepositorioFornecedor{
     private Fornecedor fornecedor;
-    private RepositorioLista proximo;
-    public RepositorioLista(){
+    private RepositorioListaFornecedor proximo;
+    public RepositorioListaFornecedor(){
         this.fornecedor = null;
         this.proximo = null;
     }
@@ -52,17 +52,17 @@ public class RepositorioLista implements Repositorio{
     }
 
     @Override
-    public void cadastrar(Fornecedor fornecedor) throws FornecedorJaCadastradoException{
+    public void inserir(Fornecedor fornecedor) throws FornecedorJaCadastradoException{
         if (this.fornecedor == null){
             this.fornecedor = fornecedor;
-            this.proximo = new RepositorioLista();
+            this.proximo = new RepositorioListaFornecedor();
         }
         else if (this.fornecedor.getId().equals(fornecedor.getId())){
             throw new FornecedorJaCadastradoException();
         }
 
         else{
-            this.proximo.cadastrar(fornecedor);
+            this.proximo.inserir(fornecedor);
         }
     }
 

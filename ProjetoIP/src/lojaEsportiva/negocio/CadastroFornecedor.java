@@ -1,17 +1,17 @@
 package lojaEsportiva.negocio;
 
 import lojaEsportiva.dados.Fornecedor;
-import lojaEsportiva.dados.Repositorio;
+import lojaEsportiva.dados.RepositorioFornecedor;
 import lojaEsportiva.exceptions.FornecedorJaCadastradoException;
 import lojaEsportiva.exceptions.FornecedorNaoEncontradoException;
 
 public class CadastroFornecedor{
-   private Repositorio fornecedor;
-   public CadastroFornecedor (Repositorio rep) {
+   private RepositorioFornecedor fornecedor;
+   public CadastroFornecedor (RepositorioFornecedor rep) {
 	   fornecedor = rep;
    }
    public void cadastrar (Fornecedor fornecedor) throws FornecedorJaCadastradoException{
-	  this.fornecedor.cadastrar(fornecedor);
+	  this.fornecedor.inserir(fornecedor);
    }
    public void remover (String cnpj) throws FornecedorNaoEncontradoException{
 	   this.fornecedor.remover(cnpj);
