@@ -3,10 +3,10 @@ package lojaEsportiva.dados;
 import lojaEsportiva.exceptions.FornecedorJaCadastradoException;
 import lojaEsportiva.exceptions.FornecedorNaoEncontradoException;
 
-public class RepositorioArray implements Repositorio {
+public class RepositorioArrayFornecedor implements RepositorioFornecedor {
     private Fornecedor [] fornecedor;
     private  int index ;
-    public RepositorioArray(){
+    public RepositorioArrayFornecedor(){
         this.fornecedor = new Fornecedor [100];
         this.index = 0;
     }
@@ -57,7 +57,7 @@ public class RepositorioArray implements Repositorio {
    
    
     @Override
-    public void cadastrar(Fornecedor fornecedor) throws FornecedorJaCadastradoException {
+    public void inserir(Fornecedor fornecedor) throws FornecedorJaCadastradoException {
 
         for (int i = 0; i < this.index;i++){
             if (this.fornecedor[i].getId().equals(fornecedor.getId())){

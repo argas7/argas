@@ -1,7 +1,6 @@
 package lojaEsportiva.gui;
 
 import java.util.Scanner;
-
 import lojaEsportiva.dados.*;
 import lojaEsportiva.exceptions.*;
 import lojaEsportiva.negocio.*;
@@ -13,12 +12,12 @@ public class GUI {
 	public static void main(String[] args) {
 		//Fachada fachada = new Fachada(new CadastroVendas(new RepositorioVendasArray()),
 		//		new Cadastroprodutos(new RepositorioProdutoArray()),
-		//		new CadastroFornecedor(new RepositorioArray()),
+		//		new CadastroFornecedor(new RepositorioArrayFornecedor()),
 		//		new CadastroFuncionarios(new RepositorioFuncionariosArray()),
 		//		new CadastroCliente(new RepositorioClienteArray()));
 		Fachada fachada = new Fachada(new CadastroVendas(new RepositorioVendasLista()),
 				new Cadastroprodutos(new RepositorioProdutosLista()),
-				new CadastroFornecedor(new RepositorioLista()),
+				new CadastroFornecedor(new RepositorioListaFornecedor()),
 				new CadastroFuncionarios(new RepositorioFuncionariosLista()),
 				new CadastroCliente(new RepositorioListaCliente()));
 		Scanner t = new Scanner(System.in);
