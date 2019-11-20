@@ -6,8 +6,8 @@ import lojaEsportiva.negocio.*;
 import lojaEsportiva.fachada.Fachada;
 
 public class FormPrincipal extends javax.swing.JFrame {
-    	public static Fachada fachada = new Fachada(new CadastroVendas(new RepositorioVendasArray()), new Cadastroprodutos(new RepositorioProdutoArray()), new CadastroFornecedor(new RepositorioArrayFornecedor()), new CadastroFuncionarios(new RepositorioFuncionariosArray()), new CadastroCliente(new RepositorioClienteArray()));
-        //public static Fachada fachada = new Fachada(new CadastroVendas(new RepositorioVendasLista()), new Cadastroprodutos(new RepositorioProdutosLista()), new CadastroFornecedor(new RepositorioListaFornecedor()), new CadastroFuncionarios(new RepositorioFuncionariosLista()), new CadastroCliente(new RepositorioListaCliente()));
+    	//public static Fachada fachada = new Fachada(new CadastroVendas(new RepositorioVendasArray()), new Cadastroprodutos(new RepositorioProdutoArray()), new CadastroFornecedor(new RepositorioArrayFornecedor()), new CadastroFuncionarios(new RepositorioFuncionariosArray()), new CadastroCliente(new RepositorioClienteArray()));
+        public static Fachada fachada = new Fachada(new CadastroVendas(new RepositorioVendasLista()), new Cadastroprodutos(new RepositorioProdutosLista()), new CadastroFornecedor(new RepositorioListaFornecedor()), new CadastroFuncionarios(new RepositorioFuncionariosLista()), new CadastroCliente(new RepositorioListaCliente()));
     /**
      * Creates new form FormPrincipal
      */

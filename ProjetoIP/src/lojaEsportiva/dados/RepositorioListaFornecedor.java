@@ -71,7 +71,8 @@ public class RepositorioListaFornecedor implements RepositorioFornecedor{
         if (this.proximo == null){
            throw new FornecedorNaoEncontradoException();
         } else if (this.fornecedor.getId().equals(fornecedor.getId())){
-             this.fornecedor.setTipoProduto(fornecedor.getTipoProduto());
+             this.fornecedor = fornecedor;
+             
         } else {
            this.proximo.atualizar(fornecedor);
            }
