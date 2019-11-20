@@ -41,13 +41,11 @@ public class RepositorioArrayFornecedor implements RepositorioFornecedor {
     @Override
     public Fornecedor procurar(String cnpj) throws FornecedorNaoEncontradoException {
         Fornecedor fornecedor  = null;
-        boolean falsoBreak = false;
-        for (int i = 0; i < this.index && !falsoBreak;i++){
-            if (this.fornecedor[i].getId().equals(cnpj)){
-                fornecedor = this.fornecedor[i];
-                falsoBreak = true;
-
-            }
+        int i = this.getIndice(cnpj);
+        if (i == this.index){
+            throw new FornecedorNaoEncontradoException();
+        } else {
+            fornecedor = this.fornecedor[i];
         }
 
 

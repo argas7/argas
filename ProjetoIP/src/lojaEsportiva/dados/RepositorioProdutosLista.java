@@ -3,7 +3,7 @@ package lojaEsportiva.dados;
 import lojaEsportiva.exceptions.ProdutoJaCadastradoException;
 import lojaEsportiva.exceptions.ProdutoNaoEncontradoException;
 
-public class RepositorioProdutosLista implements repositorioprodutos  {
+public class RepositorioProdutosLista implements RepositorioProdutos  {
 	private Produto produto;
 	private RepositorioProdutosLista proximo;
 	public RepositorioProdutosLista() {
@@ -27,7 +27,7 @@ public class RepositorioProdutosLista implements repositorioprodutos  {
 	public void remover(String identificador)throws ProdutoNaoEncontradoException {
 		if(this.proximo==null) {
 			throw new ProdutoNaoEncontradoException();
-		}else if(this.produto.getIdentificador().equals(produto.getIdentificador())) {
+		}else if(this.produto.getIdentificador().equals(identificador)) {
 			this.produto=this.proximo.produto;
 			this.proximo=this.proximo.proximo;
 		}else {
@@ -39,7 +39,7 @@ public class RepositorioProdutosLista implements repositorioprodutos  {
 	public void atualizar(Produto produtonovo) throws ProdutoNaoEncontradoException{
 		if(this.proximo==null) {
 			throw new ProdutoNaoEncontradoException();
-		}else if(this.produto.getIdentificador().equals(produto.getIdentificador())) {
+		}else if(this.produto.getIdentificador().equals(produtonovo.getIdentificador())) {
 			this.produto=produtonovo;
 		}else {
 			this.proximo.atualizar(produtonovo);
@@ -63,7 +63,7 @@ public class RepositorioProdutosLista implements repositorioprodutos  {
 		boolean resposta= false;
 		if(this.proximo==null){
 			resposta=false;
-		}else if(this.produto.getIdentificador().equals(produto.getIdentificador())) {
+		}else if(this.produto.getIdentificador().equals(identificador)) {
 			resposta= true;
 		}else {
 			this.proximo.existe(identificador);

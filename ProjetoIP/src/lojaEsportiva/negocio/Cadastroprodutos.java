@@ -1,14 +1,14 @@
 package lojaEsportiva.negocio;
 
 import lojaEsportiva.dados.Produto;
-import lojaEsportiva.dados.repositorioprodutos;
+import lojaEsportiva.dados.RepositorioProdutos;
 import lojaEsportiva.exceptions.ProdutoJaCadastradoException;
 import lojaEsportiva.exceptions.ProdutoNaoEncontradoException;
 
 public class Cadastroprodutos {
-	private repositorioprodutos produtos;
+	private RepositorioProdutos produtos;
 
-	public Cadastroprodutos(repositorioprodutos rep) {
+	public Cadastroprodutos(RepositorioProdutos rep) {
 		produtos = rep;
 	}
 

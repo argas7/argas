@@ -1,25 +1,8 @@
 package lojaEsportiva.fachada;
 
-import lojaEsportiva.dados.Cliente;
-import lojaEsportiva.dados.Fornecedor;
-import lojaEsportiva.dados.Funcionarios;
-import lojaEsportiva.dados.Produto;
-import lojaEsportiva.dados.Venda;
-import lojaEsportiva.exceptions.ClienteJaCadastradoException;
-import lojaEsportiva.exceptions.ClienteNaoEncontradoException;
-import lojaEsportiva.exceptions.FornecedorJaCadastradoException;
-import lojaEsportiva.exceptions.FornecedorNaoEncontradoException;
-import lojaEsportiva.exceptions.FuncionarioJaCadastradoException;
-import lojaEsportiva.exceptions.FuncionarioNaoExistenteException;
-import lojaEsportiva.exceptions.ProdutoJaCadastradoException;
-import lojaEsportiva.exceptions.ProdutoNaoEncontradoException;
-import lojaEsportiva.exceptions.VendaJaCadastradaException;
-import lojaEsportiva.exceptions.VendaNaoEncontradaException;
-import lojaEsportiva.negocio.CadastroCliente;
-import lojaEsportiva.negocio.CadastroFornecedor;
-import lojaEsportiva.negocio.CadastroFuncionarios;
-import lojaEsportiva.negocio.CadastroVendas;
-import lojaEsportiva.negocio.Cadastroprodutos;
+import lojaEsportiva.dados.*;
+import lojaEsportiva.exceptions.*;
+import lojaEsportiva.negocio.*;
 
 public class Fachada {
 	private CadastroVendas vendas;
@@ -27,15 +10,17 @@ public class Fachada {
 	private CadastroFornecedor fornecedor;
 	private CadastroFuncionarios funcionarios;
 	private CadastroCliente cliente;
-	public Fachada(CadastroVendas vendas, Cadastroprodutos produto, CadastroFornecedor fornecedor, CadastroFuncionarios funcionarios, CadastroCliente cliente) {
+	
+        public Fachada(CadastroVendas vendas, Cadastroprodutos produto, CadastroFornecedor fornecedor, CadastroFuncionarios funcionarios, CadastroCliente cliente) {
 		this.vendas = vendas;
 		this.produto = produto;
 		this.fornecedor = fornecedor;
 		this.funcionarios = funcionarios;
 		this.cliente=cliente;
 	}
-	public void cadastrarVenda(Venda venda) throws VendaJaCadastradaException {
-		this.vendas.cadastrar(venda);
+	
+        public void cadastrarVenda(Venda venda) throws VendaJaCadastradaException {
+            this.vendas.cadastrar(venda);
 	}
 	
 	public Venda procurarVenda(String id) throws VendaNaoEncontradaException {

@@ -3,7 +3,7 @@ package lojaEsportiva.dados;
 import lojaEsportiva.exceptions.ProdutoJaCadastradoException;
 import lojaEsportiva.exceptions.ProdutoNaoEncontradoException;
 
-public interface repositorioprodutos {
+public interface RepositorioProdutos {
 
 	public void inserir(Produto produto) throws ProdutoJaCadastradoException;
 

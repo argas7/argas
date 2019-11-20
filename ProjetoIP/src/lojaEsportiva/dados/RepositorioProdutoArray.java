@@ -3,7 +3,7 @@ package lojaEsportiva.dados;
 import lojaEsportiva.exceptions.ProdutoJaCadastradoException;
 import lojaEsportiva.exceptions.ProdutoNaoEncontradoException;
 
-public class RepositorioProdutoArray implements repositorioprodutos {
+public class RepositorioProdutoArray implements RepositorioProdutos {
 	private Produto[] produtos;
 	private int index=0;
 	
