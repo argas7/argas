@@ -45,15 +45,19 @@ public class RepositorioFuncionariosArray implements RepositorioFuncionarios {
 	public Funcionarios atualizar(Funcionarios funcionario) throws FuncionarioNaoExistenteException {
 
 		int i = this.getIndice(funcionario.getIdFuncionario());
-
-		this.funcionario[i] = funcionario;
+		
+		this.funcionario[i].setNome(funcionario.getNome());
+		this.funcionario[i].setEndereco(funcionario.getEndereco());
+		this.funcionario[i].setContato(funcionario.getContato());
+		this.funcionario[i].setNumeroConta(funcionario.getNumeroConta());
+		this.funcionario[i].setRg(funcionario.getRg());
+		
 		return this.funcionario[i];
 
-
 	}
+        
 
 	private int getIndice(String idFuncionario) {
-
 
 		boolean controle = false;
 		int i = 0;

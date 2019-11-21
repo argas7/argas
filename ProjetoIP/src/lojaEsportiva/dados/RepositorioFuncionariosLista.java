@@ -55,8 +55,13 @@ public class RepositorioFuncionariosLista implements RepositorioFuncionarios {
 	public Funcionarios atualizar(Funcionarios funcionario) throws FuncionarioNaoExistenteException {
 
 		if (this.funcionario.getIdFuncionario().equals(funcionario.getIdFuncionario())) {
-			this.funcionario = funcionario;
+			this.funcionario.setNome(funcionario.getNome());
+			this.funcionario.setEndereco(funcionario.getEndereco());
+			this.funcionario.setContato(funcionario.getContato());
+			this.funcionario.setNumeroConta(funcionario.getNumeroConta());
+			this.funcionario.setRg(funcionario.getRg());
 			return this.funcionario;
+			
 		} else {
 			return this.proximo.atualizar(funcionario);
 		}

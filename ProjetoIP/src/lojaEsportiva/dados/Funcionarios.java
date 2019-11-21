@@ -6,7 +6,8 @@ public class Funcionarios extends Cliente {
 	private String numeroConta;
 	private String idFuncionario;
 
-	public Funcionarios(String rg, String numeroConta, String idFuncionario, String nome, String endereco, String contato, String id) {
+	public Funcionarios(String rg, String numeroConta, String idFuncionario, String nome, 
+			String endereco, String contato, String id) {
 		super(nome,endereco,contato,id);
 
 		this.rg = rg;
@@ -16,6 +17,10 @@ public class Funcionarios extends Cliente {
 
 	public String getRg() {
 		return rg;
+	}
+	
+	public void setRg(String rg) {
+		this.rg = rg;
 	}
 
 	public String getNumeroConta() {
@@ -29,6 +34,7 @@ public class Funcionarios extends Cliente {
 	public String getIdFuncionario() {
 		return idFuncionario;
 	}
+
 
 	public void setIdFuncionario(String idFuncionario) {
 		this.idFuncionario = idFuncionario;
