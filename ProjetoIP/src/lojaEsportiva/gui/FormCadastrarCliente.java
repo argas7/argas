@@ -30,7 +30,7 @@ public class FormCadastrarCliente extends javax.swing.JFrame {
             return false;
         }
         if (!((txtEndereco.getText().length() > 0) && (txtEndereco.getText() != null))) {
-            JOptionPane.showMessageDialog(null, "O campo Endereço deve ser informado!");
+            JOptionPane.showMessageDialog(null, "O campo Endereco deve ser informado!");
             txtEndereco.requestFocus();
             return false;
         }

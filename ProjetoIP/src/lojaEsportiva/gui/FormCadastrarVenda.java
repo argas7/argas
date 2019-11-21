@@ -36,7 +36,7 @@ public class FormCadastrarVenda extends javax.swing.JFrame {
             return false;
         }
         if (!((txtIdFuncionario.getText().length() > 0) && (txtIdFuncionario.getText() != null))) {
-            JOptionPane.showMessageDialog(null, "O campo ID Funcionário deve ser informado!");
+            JOptionPane.showMessageDialog(null, "O campo ID Funcionario deve ser informado!");
             txtIdFuncionario.requestFocus();
             return false;
         }

@@ -15,7 +15,7 @@ public class FormConsultarFuncionario extends javax.swing.JFrame {
 
     private boolean validaCampos() {
         if (!((txtIDFuncionario.getText().length() > 0) && (txtIDFuncionario.getText() != null))) {
-            JOptionPane.showMessageDialog(null, "O campo ID Funcionário deve ser informado!");
+            JOptionPane.showMessageDialog(null, "O campo ID Funcionario deve ser informado!");
             txtIDFuncionario.requestFocus();
             return false;
         }

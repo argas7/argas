@@ -8,7 +8,6 @@ import lojaEsportiva.dados.Venda;
 import lojaEsportiva.exceptions.ClienteNaoEncontradoException;
 import lojaEsportiva.exceptions.FuncionarioNaoExistenteException;
 import lojaEsportiva.exceptions.ProdutoNaoEncontradoException;
-import lojaEsportiva.exceptions.VendaJaCadastradaException;
 import lojaEsportiva.exceptions.VendaNaoEncontradaException;
 
 public class FormAtualizarVenda extends javax.swing.JFrame {
@@ -37,7 +36,7 @@ public class FormAtualizarVenda extends javax.swing.JFrame {
             return false;
         }
         if (!((txtIdFuncionario.getText().length() > 0) && (txtIdFuncionario.getText() != null))) {
-            JOptionPane.showMessageDialog(null, "O campo ID Funcionário deve ser informado!");
+            JOptionPane.showMessageDialog(null, "O campo ID Funcionario deve ser informado!");
             txtIdFuncionario.requestFocus();
             return false;
         }

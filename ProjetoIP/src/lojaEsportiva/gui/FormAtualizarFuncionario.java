@@ -2,7 +2,6 @@ package lojaEsportiva.gui;
 
 import javax.swing.JOptionPane;
 import lojaEsportiva.dados.Funcionarios;
-import lojaEsportiva.exceptions.FuncionarioJaCadastradoException;
 import lojaEsportiva.exceptions.FuncionarioNaoExistenteException;
 
 public class FormAtualizarFuncionario extends javax.swing.JFrame {

@@ -2,7 +2,6 @@ package lojaEsportiva.gui;
 
 import javax.swing.JOptionPane;
 import lojaEsportiva.dados.Produto;
-import lojaEsportiva.exceptions.ProdutoJaCadastradoException;
 import lojaEsportiva.exceptions.ProdutoNaoEncontradoException;
 
 public class FormAtualizarProduto extends javax.swing.JFrame {
@@ -31,7 +30,7 @@ public class FormAtualizarProduto extends javax.swing.JFrame {
             return false;
         }
         if (!((txtPreco.getText().length() > 0) && (txtPreco.getText() != null))) {
-            JOptionPane.showMessageDialog(null, "O campo Preço deve ser informado!");
+            JOptionPane.showMessageDialog(null, "O campo Preco deve ser informado!");
             txtPreco.requestFocus();
             return false;
         }

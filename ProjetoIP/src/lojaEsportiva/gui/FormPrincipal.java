@@ -1,6 +1,5 @@
 package lojaEsportiva.gui;
 
-import javax.swing.JDialog;
 import lojaEsportiva.dados.*;
 import lojaEsportiva.negocio.*;
 import lojaEsportiva.fachada.Fachada;

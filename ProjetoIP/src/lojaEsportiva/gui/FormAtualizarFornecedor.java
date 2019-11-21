@@ -2,10 +2,7 @@ package lojaEsportiva.gui;
 
 import javax.swing.JOptionPane;
 import lojaEsportiva.dados.Fornecedor;
-import lojaEsportiva.dados.Funcionarios;
-import lojaEsportiva.exceptions.FornecedorJaCadastradoException;
 import lojaEsportiva.exceptions.FornecedorNaoEncontradoException;
-import lojaEsportiva.exceptions.FuncionarioJaCadastradoException;
 
 public class FormAtualizarFornecedor extends javax.swing.JFrame {
 

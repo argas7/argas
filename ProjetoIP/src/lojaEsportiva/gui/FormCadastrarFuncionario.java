@@ -30,12 +30,12 @@ public class FormCadastrarFuncionario extends javax.swing.JFrame {
             return false;
         }
         if (!((txtEndereco.getText().length() > 0) && (txtEndereco.getText() != null))) {
-            JOptionPane.showMessageDialog(null, "O campo Endereço deve ser informado!");
+            JOptionPane.showMessageDialog(null, "O campo Endereco deve ser informado!");
             txtEndereco.requestFocus();
             return false;
         }
         if (!((txtIDFuncionario.getText().length() > 0) && (txtIDFuncionario.getText() != null))) {
-            JOptionPane.showMessageDialog(null, "O campo ID Funcionário deve ser informado!");
+            JOptionPane.showMessageDialog(null, "O campo ID Funcionario deve ser informado!");
             txtIDFuncionario.requestFocus();
             return false;
         }
@@ -45,7 +45,7 @@ public class FormCadastrarFuncionario extends javax.swing.JFrame {
             return false;
         }
         if (!((txtNumConta.getText().length() > 0) && (txtNumConta.getText() != null))) {
-            JOptionPane.showMessageDialog(null, "O campo Número da Conta deve ser informado!");
+            JOptionPane.showMessageDialog(null, "O campo Numero da Conta deve ser informado!");
             txtNumConta.requestFocus();
             return false;
         }

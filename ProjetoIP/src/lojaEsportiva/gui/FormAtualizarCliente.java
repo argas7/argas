@@ -2,7 +2,6 @@ package lojaEsportiva.gui;
 
 import javax.swing.JOptionPane;
 import lojaEsportiva.dados.Cliente;
-import lojaEsportiva.exceptions.ClienteJaCadastradoException;
 import lojaEsportiva.exceptions.ClienteNaoEncontradoException;
 
 public class FormAtualizarCliente extends javax.swing.JFrame {
@@ -31,7 +30,7 @@ public class FormAtualizarCliente extends javax.swing.JFrame {
             return false;
         }
         if (!((txtEndereco.getText().length() > 0) && (txtEndereco.getText() != null))) {
-            JOptionPane.showMessageDialog(null, "O campo Endereço deve ser informado!");
+            JOptionPane.showMessageDialog(null, "O campo Endereco deve ser informado!");
             txtEndereco.requestFocus();
             return false;
         }
