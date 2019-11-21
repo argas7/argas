@@ -152,7 +152,7 @@ public class FormAtualizarVenda extends javax.swing.JFrame {
                 Funcionarios funcionario = FormPrincipal.fachada.procurarFuncionario(txtIdFuncionario.getText());
                 Venda venda = new Venda(produto, cliente, funcionario, txtID.getText());
                 FormPrincipal.fachada.atualizarVenda(venda);
-                JOptionPane.showMessageDialog(null, "Venda registrada com sucesso!");
+                JOptionPane.showMessageDialog(null, "Registro de venda atualizado com sucesso!");
                 limparCampos();
             } catch (VendaNaoEncontradaException | ProdutoNaoEncontradoException | ClienteNaoEncontradoException | FuncionarioNaoExistenteException e){
                 JOptionPane.showMessageDialog(null, e.getMessage());
